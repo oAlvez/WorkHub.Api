@@ -1,0 +1,14 @@
+*.vs
+*.cache
+*.config
+*.user
+/WorkHub.Api/bin
+/WorkHub.Api/obj
+/WorkHub.Application/bin
+/WorkHub.Application/obj
+/WorkHub.Domain/bin
+/WorkHub.Domain/obj
+/WorkHub.Exceptions/bin
+/WorkHub.Exceptions/obj
+/WorkHub.Infrastructure/bin
+/WorkHub.Infrastructure/obj

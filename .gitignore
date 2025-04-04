@@ -12,3 +12,5 @@
 /WorkHub.Exceptions/obj
 /WorkHub.Infrastructure/bin
 /WorkHub.Infrastructure/obj
+/WorkHub.CrossCutting/bin
+/WorkHub.CrossCutting/obj

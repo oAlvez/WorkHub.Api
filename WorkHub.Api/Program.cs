@@ -1,4 +1,5 @@
 using WorkHub.Api.Filters;
+using WorkHub.CrossCutting.Extensions;
 using WorkHub.CrossCutting.InjectionsConfiguration;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +16,8 @@ builder.Services.AddOutputCacheConfiguration();
 builder.Services.AddHealthChecksConfiguration();
 
 var app = builder.Build();
+
+await app.Services.RunSeedersAsync();
 
 app.UseHealthChecksConfiguration(builder.Configuration);
 app.UseSwaggerConfiguration();

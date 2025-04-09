@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using WorkHub.Domain.Entities;
+using WorkHub.Infrastructure.Context;
 
 namespace WorkHub.CrossCutting.InjectionsConfiguration;
 public static class InfrastructureConfiguration
@@ -25,7 +26,7 @@ public static class InfrastructureConfiguration
             options.LogTo(Console.WriteLine, LogLevel.Information);
         }, ServiceLifetime.Transient, ServiceLifetime.Transient);
 
-        services.AddIdentity<User, Role>().AddEntityFrameworkStores<DatabaseContext>().AddDefaultTokenProviders();
+        services.AddIdentity<User,IdentityRole<Guid>>().AddEntityFrameworkStores<DatabaseContext>().AddDefaultTokenProviders();
 
         return services;
     }

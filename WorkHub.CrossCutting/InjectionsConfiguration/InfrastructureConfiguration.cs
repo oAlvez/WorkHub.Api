@@ -3,8 +3,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using WorkHub.Application.Interfaces.Repositories;
 using WorkHub.Domain.Entities;
 using WorkHub.Infrastructure.Context;
+using WorkHub.Infrastructure.Repositories;
 
 namespace WorkHub.CrossCutting.InjectionsConfiguration;
 public static class InfrastructureConfiguration
@@ -23,10 +25,14 @@ public static class InfrastructureConfiguration
 
             });
             options.EnableSensitiveDataLogging();
-            options.LogTo(Console.WriteLine, LogLevel.Information);
+            options.LogTo(Console.WriteLine, LogLevel.Error);
         }, ServiceLifetime.Transient, ServiceLifetime.Transient);
 
         services.AddIdentity<User,IdentityRole<Guid>>().AddEntityFrameworkStores<DatabaseContext>().AddDefaultTokenProviders();
+        
+        services.AddScoped<ICompanyRepository, CompanyRepository>();
+        services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+        services.AddScoped<IJobPositionRepository, JobPositionRepository>();
 
         return services;
     }

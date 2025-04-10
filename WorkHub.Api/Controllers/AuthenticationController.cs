@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WorkHub.Application.DTOs.Requests;
 using WorkHub.Application.DTOs.Responses;
-using WorkHub.Application.Interfaces;
+using WorkHub.Application.Interfaces.Repositories.Base;
+using WorkHub.Application.Interfaces.Services;
 
 namespace WorkHub.Api.Controllers;
 

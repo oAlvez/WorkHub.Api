@@ -6,7 +6,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
 using System.Text.Json.Serialization;
-using WorkHub.Application.Interfaces;
+using WorkHub.Application.Interfaces.Services;
 using WorkHub.Application.Services;
 using WorkHub.CrossCutting.MapperConfiguration;
 
@@ -16,6 +16,9 @@ public static class ServiceConfiguration
     public static IServiceCollection AddServicesConfiguration(this IServiceCollection services)
     {
         services.AddScoped<IAuthenticationService, AuthenticationService>();
+        services.AddScoped<ICompanyService, CompanyService>();
+        services.AddScoped<IEmployeeService, EmployeeService>();
+        services.AddScoped<IJobPositionService, JobPositionService>();
         return services;
     }
     public static IServiceCollection AddAuthenticationConfiguration(this IServiceCollection services, IConfiguration configuration)

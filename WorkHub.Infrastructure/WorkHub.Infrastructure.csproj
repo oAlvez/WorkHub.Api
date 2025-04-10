@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\WorkHub.Application\WorkHub.Application.csproj" />
     <ProjectReference Include="..\WorkHub.Domain\WorkHub.Domain.csproj" />
   </ItemGroup>
 

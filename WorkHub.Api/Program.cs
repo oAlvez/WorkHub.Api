@@ -1,6 +1,6 @@
 using FluentValidation;
 using WorkHub.Api.Filters;
-using WorkHub.Application.Validators;
+using WorkHub.Application.Validators.Creates;
 using WorkHub.CrossCutting.Extensions;
 using WorkHub.CrossCutting.InjectionsConfiguration;
 

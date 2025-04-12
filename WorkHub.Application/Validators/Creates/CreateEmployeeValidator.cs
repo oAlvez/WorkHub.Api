@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using WorkHub.Application.DTOs.Creates;
 
-namespace WorkHub.Application.Validators;
+namespace WorkHub.Application.Validators.Creates;
 public class CreateEmployeeValidator : AbstractValidator<CreateEmployeeDTO>
 {
     public CreateEmployeeValidator()

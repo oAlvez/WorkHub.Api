@@ -12,6 +12,15 @@ public class Employee : BaseEntity
         CompanyId = companyId;
     }
 
+    public void Update(string fullName, string firstName, string email, Guid jobPositionId, Guid companyId)
+    {
+        FullName = fullName;
+        FirstName = firstName;
+        Email = email;
+        JobPositionId = jobPositionId;
+        CompanyId = companyId;
+    }
+
     public string FullName { get; set; } = string.Empty;
     public string FirstName { get; set; } = string.Empty;
     public string Email { get; set; } = string.Empty;

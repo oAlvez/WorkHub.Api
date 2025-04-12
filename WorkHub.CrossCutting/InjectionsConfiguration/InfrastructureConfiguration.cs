@@ -33,6 +33,7 @@ public static class InfrastructureConfiguration
         services.AddScoped<ICompanyRepository, CompanyRepository>();
         services.AddScoped<IEmployeeRepository, EmployeeRepository>();
         services.AddScoped<IJobPositionRepository, JobPositionRepository>();
+        services.AddScoped<IUserRepository, UserRepository>();
 
         return services;
     }

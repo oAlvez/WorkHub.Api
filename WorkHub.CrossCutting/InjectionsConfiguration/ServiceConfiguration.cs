@@ -19,6 +19,7 @@ public static class ServiceConfiguration
         services.AddScoped<ICompanyService, CompanyService>();
         services.AddScoped<IEmployeeService, EmployeeService>();
         services.AddScoped<IJobPositionService, JobPositionService>();
+        services.AddScoped<IUserService, UserService>();
         return services;
     }
     public static IServiceCollection AddAuthenticationConfiguration(this IServiceCollection services, IConfiguration configuration)

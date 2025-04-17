@@ -9,6 +9,13 @@ namespace WorkHub.Api.Controllers;
 [Route("api/[controller]")]
 public class UserController(IUserService _userService) : ControllerBase
 {
+    [HttpGet]
+    public async Task<IActionResult> GetAll() => Ok(await _userService.GetAllAsync());
+
+    [HttpGet("{id:guid}")]
+    public async Task<IActionResult> GetById(Guid id) => Ok(await _userService.GetByIdAsync(id));
+
+
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] CreateUserDTO dto)
     {

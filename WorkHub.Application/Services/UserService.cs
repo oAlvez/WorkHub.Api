@@ -1,16 +1,21 @@
 ﻿using FluentValidation;
 using Microsoft.AspNetCore.Identity;
 using WorkHub.Application.DTOs.Updates;
+using WorkHub.Application.Interfaces.Repositories;
 using WorkHub.Application.Interfaces.Services;
 using WorkHub.Domain.Entities;
 using WorkHub.Exceptions;
 
 namespace WorkHub.Application.Services;
 public class UserService(UserManager<User> _userManager,
+    IUserRepository _repository,
     IValidator<CreateUserDTO> _validator,
     IValidator<UpdateUserDTO> _validatorUpdate
     ) : IUserService
 {
+
+    public async Task<IEnumerable<User>> GetAllAsync() => await _repository.GetAllAsync();
+    public async Task<User?> GetByIdAsync(Guid id) => await _userManager.FindByIdAsync(id.ToString());
     public async Task<Guid> CreateAsync(CreateUserDTO dto)
     {
         var validation = await _validator.ValidateAsync(dto);

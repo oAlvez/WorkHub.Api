@@ -8,12 +8,11 @@ namespace WorkHub.Api.Controllers;
 [Route("api/[controller]")]
 public class CompanyController(ICompanyService _companyService) : ControllerBase
 {
-    //[HttpGet("GetById/{id:guid}")]
-    //public async Task<IActionResult> GetById(Guid id)
-    //{
-    //    var result = await _companyService.(id);
-    //    return result ? Ok("Empresa excluída com sucesso.") : StatusCode(500, "Erro ao excluir a empresa.");
-    //}
+    [HttpGet]
+    public async Task<IActionResult> GetAll() => Ok(await _companyService.GetAllAsync());
+
+    [HttpGet("{id:guid}")]
+    public async Task<IActionResult> GetById(Guid id) => Ok(await _companyService.GetByIdAsync(id));
 
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] CreateCompanyDTO dto) =>

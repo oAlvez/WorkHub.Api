@@ -2,13 +2,18 @@
 using WorkHub.Application.DTOs.Creates;
 using WorkHub.Application.DTOs.Updates;
 using WorkHub.Application.Interfaces.Services;
-using WorkHub.Application.Services;
 
 namespace WorkHub.Api.Controllers;
 [ApiController]
 [Route("api/[controller]")]
 public class EmployeeController(IEmployeeService _employeeService) : ControllerBase
 {
+    [HttpGet]
+    public async Task<IActionResult> GetAll() => Ok(await _employeeService.GetAllAsync());
+
+    [HttpGet("{id:guid}")]
+    public async Task<IActionResult> GetById(Guid id) => Ok(await _employeeService.GetByIdAsync(id));
+
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] CreateEmployeeDTO dto) =>
         Created(string.Empty, await _employeeService.CreateAsync(dto));

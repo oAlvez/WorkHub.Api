@@ -11,6 +11,9 @@ public class JobPositionService(IJobPositionRepository _repository,
     IValidator<UpdateJobPositionDTO> _validatorUpdate
     ) : IJobPositionService
 {
+    public async Task<IEnumerable<JobPosition>> GetAllAsync() => await _repository.GetAllAsync();
+    public async Task<JobPosition> GetByIdAsync(Guid id) => await _repository.GetByIdAsync(id);
+
     public async Task<Guid> CreateAsync(CreateJobPositionDTO request)
     {
         var validation = await _validator.ValidateAsync(request);

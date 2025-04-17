@@ -11,6 +11,9 @@ public class EmployeeService(IEmployeeRepository _repository,
     IValidator<UpdateEmployeeDTO> _validatorUpdate
     ) : IEmployeeService
 {
+    public async Task<IEnumerable<Employee>> GetAllAsync() => await _repository.GetAllAsync();
+    public async Task<Employee> GetByIdAsync(Guid id) => await _repository.GetByIdAsync(id);
+
     public async Task<Guid> CreateAsync(CreateEmployeeDTO request)
     {
         var validation = await _validator.ValidateAsync(request);

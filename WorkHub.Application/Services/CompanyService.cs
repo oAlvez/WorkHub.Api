@@ -8,6 +8,10 @@ using WorkHub.Domain.Entities;
 namespace WorkHub.Application.Services;
 public class CompanyService(ICompanyRepository _repository, IValidator<CreateCompanyDTO> _validator, IValidator<UpdateCompanyDTO> _validatorUpdate) : ICompanyService
 {
+
+    public async Task<IEnumerable<Company>> GetAllAsync() => await _repository.GetAllAsync();
+    public async Task<Company> GetByIdAsync(Guid id) => await _repository.GetByIdAsync(id);
+
     public async Task<Guid> CreateAsync(CreateCompanyDTO request)
     {
         var validation = await _validator.ValidateAsync(request);

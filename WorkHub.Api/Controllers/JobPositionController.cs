@@ -8,6 +8,13 @@ namespace WorkHub.Api.Controllers;
 [Route("api/[controller]")]
 public class JobPositionController(IJobPositionService _jobPositionService) : ControllerBase
 {
+    [HttpGet]
+    public async Task<IActionResult> GetAll() => Ok(await _jobPositionService.GetAllAsync());
+
+    [HttpGet("{id:guid}")]
+    public async Task<IActionResult> GetById(Guid id) => Ok(await _jobPositionService.GetByIdAsync(id));
+
+
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] CreateJobPositionDTO dto) =>
         Created(string.Empty, await _jobPositionService.CreateAsync(dto));

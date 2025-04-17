@@ -15,7 +15,7 @@ public static class InfrastructureConfiguration
     {
         services.AddDbContext<DatabaseContext>(options =>
         {
-            options.UseSqlServer(configuration["ConnectionString"], sqlOptions =>
+            options.UseSqlServer(configuration["ConnectionStrings:Connection"], sqlOptions =>
             {
                 sqlOptions.EnableRetryOnFailure(
                     maxRetryCount: 3,
